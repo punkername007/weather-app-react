@@ -3,8 +3,10 @@ import "./Weather.css";
 import axios from "axios";
 import FormattedDate from "./formattedDate";
 import WeatherIcons from "./WeatherIcons";
+import WeatherTemperature from "./WeatherTemperature.js";
 
 export default function Weather(props) {
+  const [unit, setUnit] = useState("celsius");
   const [query, setQuery] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({
     ready: false,
@@ -39,6 +41,16 @@ export default function Weather(props) {
     setQuery(event.target.value);
   }
 
+  function updateCelsiusUnit(event) {
+    event.preventDefault();
+    setUnit("celsius");
+  }
+
+  function updateFahrUnit(event) {
+    event.preventDefault();
+    setUnit("fahrenheit");
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
@@ -54,8 +66,14 @@ export default function Weather(props) {
               ></input>
             </form>
             <div className="temperature-units">
-              <a href="#">C° |</a>
-              <a href="#"> F°</a>
+              <a href="#" onClick={updateCelsiusUnit}>
+                C°
+              </a>
+              |
+              <a href="#" onClick={updateFahrUnit}>
+                {" "}
+                F°
+              </a>
             </div>
           </div>
           <WeatherIcons iconId={weatherData.icon} />
@@ -80,7 +98,10 @@ export default function Weather(props) {
               <FormattedDate date={weatherData.date} />
             </div>
             <div className="temperature">
-              {Math.round(weatherData.temperature)}°
+              <WeatherTemperature
+                temperatureCelsius={weatherData.temperature}
+                unit={unit}
+              />
             </div>
           </div>
         </div>
