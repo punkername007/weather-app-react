@@ -4,73 +4,39 @@ import "./Weather.css";
 export default function Weather() {
   return (
     <div className="Weather">
-      <header>
-        <nav
-          className="navbar navbar-expand bg-dark border-bottom"
-          data-bs-theme="dark"
-        >
-          <div className="container-fluid">
-            <ul className="navbar-nav me-auto">
-              <li className="nav-item">
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="nav-link"
-                >
-                  Link
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="nav-link"
-                >
-                  Link
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="nav-link"
-                >
-                  Link
-                </a>
-              </li>
-            </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Enter a city ..."
-              ></input>
-              <button className="btn btn-light btn-outline-dark" type="submit">
-                Search
-              </button>
-            </form>
+      <div className="weather-info">
+        <form>
+          <input type="search" placeholder="Enter a city ..." required></input>
+        </form>
+        <div className="icon">☀️</div>
+        <div className="weather-description">Sunny</div>
+        <div className="weather-highlights">
+          <div>
+            <div>Precipitation</div>
+            <div>0%</div>
           </div>
-        </nav>
-      </header>
-
-      <main className="container">
-        <div className="row ">
-          <div className="col ms-5">
-            <h1>City</h1>
-            <div>Sunday 00:00, sunny</div>
+          <div>
+            <div>Wind</div>
+            <div>0 km/h</div>
           </div>
-          <div className="col me-5 text-end">
-            <div>☀️ 6 °</div>
-            <div>
-              Precipitation: 0%, Humidity: 0% <br />
-              Wind: 0 km/h
-            </div>
+          <div>
+            <div>Humidity</div>
+            <div>0%</div>
           </div>
         </div>
-      </main>
+      </div>
+      <div className="weather-display">
+        <div className="location">
+          <h1>Paris</h1>
+        </div>
+        <div className="weather-display-footer">
+          <div className="date-info">
+            <div>00:00 am</div>
+            <div>Monday, Nov 16th</div>
+          </div>
+          <div className="temperature">14°</div>
+        </div>
+      </div>
     </div>
   );
 }

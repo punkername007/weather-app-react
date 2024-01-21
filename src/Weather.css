@@ -1,1 +1,57 @@
+.Weather {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+}
 
+.Weather .weather-info {
+  background-color: gray;
+  text-align: center;
+}
+
+.Weather .weather-info [type="search"] {
+  width: 80%;
+  margin: 10px auto;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 5px 8px 10px;
+  font-size: 15px;
+}
+
+.Weather .icon {
+  font-size: 90px;
+}
+
+.Weather .weather-description {
+  font-size: 30px;
+}
+
+.Weather .weather-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  padding: 10px 20px;
+  margin: 10px auto;
+}
+
+.Weather .weather-display {
+  background-color: rgba(0, 0, 0, 0.6);
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  padding: 10px;
+}
+
+.Weather .weather-display h1 {
+  text-align: end;
+}
+
+.Weather .weather-display-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  align-content: end;
+}
+
+.Weather .weather-display .weather-display-footer .temperature {
+  font-size: 60px;
+}
