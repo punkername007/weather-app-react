@@ -62,16 +62,12 @@ export default function Weather(props) {
           <div className="weather-description">{weatherData.description}</div>
           <div className="weather-highlights">
             <div>
-              <div className="highlights-header">Precipitation</div>
-              <div className="highlights-data">0 %</div>
+              <div className="highlights-header">Humidity</div>
+              <div className="highlights-data">{weatherData.humidity} %</div>
             </div>
             <div>
               <div className="highlights-header">Wind</div>
               <div className="highlights-data">{weatherData.wind} km/h</div>
-            </div>
-            <div>
-              <div className="highlights-header">Humidity</div>
-              <div className="highlights-data">{weatherData.humidity} %</div>
             </div>
           </div>
         </div>

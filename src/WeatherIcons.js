@@ -22,9 +22,24 @@ export default function WeatherIcons(props) {
     "50d": "fog",
     "50n": "fog",
   };
-  return (
-    <div className="WeatherIcons">
-      <WeatherSvg state={iconsMapping[props.iconId]} width={100} height={100} />
-    </div>
-  );
+  if (props.iconId === "02n" || props.iconId === "03n") {
+    return (
+      <WeatherSvg
+        state={iconsMapping[props.iconId]}
+        night={true}
+        width={100}
+        height={100}
+      />
+    );
+  } else {
+    return (
+      <div className="WeatherIcons">
+        <WeatherSvg
+          state={iconsMapping[props.iconId]}
+          width={100}
+          height={100}
+        />
+      </div>
+    );
+  }
 }
