@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
 import FormattedDate from "./formattedDate";
+import WeatherIcons from "./WeatherIcons";
 
 export default function Weather(props) {
   const [query, setQuery] = useState(props.defaultCity);
@@ -16,6 +17,7 @@ export default function Weather(props) {
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
+      icon: response.data.weather[0].icon,
       ready: true,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
@@ -56,7 +58,7 @@ export default function Weather(props) {
               <a href="#"> F°</a>
             </div>
           </div>
-          <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" />
+          <WeatherIcons iconId={weatherData.icon} />
           <div className="weather-description">{weatherData.description}</div>
           <div className="weather-highlights">
             <div>
