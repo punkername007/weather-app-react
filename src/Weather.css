@@ -1,21 +1,36 @@
 .Weather {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr;
 }
 
 .Weather .weather-info {
-  background-color: gray;
+  background-color: #ffffffad;
+  color: #000000c0;
   text-align: center;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.Weather .search-engine {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
 }
 
 .Weather .weather-info [type="search"] {
-  width: 80%;
-  margin: 10px auto;
-  border-radius: 5px;
   border: none;
-  padding: 8px 5px 8px 10px;
+  border-radius: 5px;
   font-size: 15px;
+  margin: 15px auto;
+  padding: 8px 5px 8px 10px;
+}
+
+.Weather .temperature-units a {
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: rgba(41, 41, 41, 0.477);
+  font-weight: bold;
 }
 
 .Weather .icon {
@@ -23,25 +38,38 @@
 }
 
 .Weather .weather-description {
-  font-size: 30px;
+  font-size: 28px;
+  letter-spacing: 2px;
+  font-weight: 300;
 }
 
 .Weather .weather-highlights {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
-  padding: 10px 20px;
-  margin: 10px auto;
+  margin: 20px auto;
+}
+
+.Weather .highlights-header {
+  font-weight: bold;
+  color: rgba(41, 41, 41, 0.477);
+}
+
+.Weather .highlights-data {
+  opacity: 0.9;
 }
 
 .Weather .weather-display {
-  background-color: rgba(0, 0, 0, 0.6);
   display: grid;
   grid-template-rows: 1fr 1fr;
-  padding: 10px;
+  padding: 15px;
 }
 
 .Weather .weather-display h1 {
+  font-size: 56px;
+  font-weight: 300;
+  margin: 0 5px;
+  letter-spacing: 2px;
   text-align: end;
 }
 
@@ -49,9 +77,15 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  align-content: end;
 }
 
-.Weather .weather-display .weather-display-footer .temperature {
-  font-size: 60px;
+.Weather .date-info {
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 100;
+}
+
+.Weather .temperature {
+  font-size: 56px;
+  font-weight: 500;
 }

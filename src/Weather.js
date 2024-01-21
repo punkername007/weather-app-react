@@ -5,23 +5,33 @@ export default function Weather() {
   return (
     <div className="Weather">
       <div className="weather-info">
-        <form>
-          <input type="search" placeholder="Enter a city ..." required></input>
-        </form>
-        <div className="icon">☀️</div>
+        <div className="search-engine">
+          <form>
+            <input
+              type="search"
+              placeholder="Enter a city ..."
+              required
+            ></input>
+          </form>
+          <div className="temperature-units">
+            <a href="#">C° |</a>
+            <a href="#"> F°</a>
+          </div>
+        </div>
+        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" />
         <div className="weather-description">Sunny</div>
         <div className="weather-highlights">
           <div>
-            <div>Precipitation</div>
-            <div>0%</div>
+            <div className="highlights-header">Precipitation</div>
+            <div className="highlights-data">0 %</div>
           </div>
           <div>
-            <div>Wind</div>
-            <div>0 km/h</div>
+            <div className="highlights-header">Wind</div>
+            <div className="highlights-data">0 km/h</div>
           </div>
           <div>
-            <div>Humidity</div>
-            <div>0%</div>
+            <div className="highlights-header">Humidity</div>
+            <div className="highlights-data">0 %</div>
           </div>
         </div>
       </div>
