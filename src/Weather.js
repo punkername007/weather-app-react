@@ -4,6 +4,7 @@ import axios from "axios";
 import FormattedDate from "./formattedDate";
 import WeatherIcons from "./WeatherIcons";
 import WeatherTemperature from "./WeatherTemperature.js";
+import WeatherForecast from "./WeatherForecast.js";
 
 export default function Weather(props) {
   const [unit, setUnit] = useState("celsius");
@@ -76,7 +77,7 @@ export default function Weather(props) {
               </a>
             </div>
           </div>
-          <WeatherIcons iconId={weatherData.icon} />
+          <WeatherIcons iconId={weatherData.icon} width={100} height={100} />
           <div className="weather-description">{weatherData.description}</div>
           <div className="weather-highlights">
             <div>
@@ -88,6 +89,7 @@ export default function Weather(props) {
               <div className="highlights-data">{weatherData.wind} km/h</div>
             </div>
           </div>
+          <WeatherForecast />
         </div>
         <div className="weather-display">
           <div className="location">

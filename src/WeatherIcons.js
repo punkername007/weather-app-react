@@ -27,8 +27,8 @@ export default function WeatherIcons(props) {
       <WeatherSvg
         state={iconsMapping[props.iconId]}
         night={true}
-        width={100}
-        height={100}
+        width={props.weight}
+        height={props.height}
       />
     );
   } else {
@@ -36,8 +36,8 @@ export default function WeatherIcons(props) {
       <div className="WeatherIcons">
         <WeatherSvg
           state={iconsMapping[props.iconId]}
-          width={100}
-          height={100}
+          width={props.weight}
+          height={props.height}
         />
       </div>
     );
