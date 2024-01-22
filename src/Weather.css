@@ -9,6 +9,7 @@
   color: #000000c0;
   padding: 10px 20px;
   text-align: center;
+  box-shadow: 5px 0px 15px rgba(41, 41, 41, 0.477);
 }
 
 .Weather .search-engine {

@@ -1,65 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./WeatherForecast.css";
-import WeatherIcons from "./WeatherIcons";
+import axios from "axios";
+import WeatherForecastDay from "./WeatherForecastDay";
 
-export default function WeatherForecast() {
-  return (
-    <div className="WeatherForecast">
-      <h2>Weekly</h2>
-      <div className="dailyForecast">
-        <div className="forecastDate">Monday</div>
-        <div className="forecastData">
-          <WeatherIcons iconId={"09d"} weight={25} height={25} />
-          <div className="forecastMinTemp">0°</div>
-          {" | "}
-          <div className="forecastMaxTemp">5°</div>
-        </div>
+export default function WeatherForecast(props) {
+  const [forecastData, setForecastData] = useState(null);
+  const [loaded, setLoaded] = useState(false);
+
+  function handleResponse(response) {
+    setForecastData(response.data.daily);
+    setLoaded(true);
+  }
+
+  function search() {
+    let apiKey = "46fac47dd8b8fa26d1b6852218ad3dfe";
+    let forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&exclude=minutely,hourly&appid=${apiKey}&units=metric`;
+    axios.get(forecastApi).then(handleResponse);
+  }
+
+  if (loaded) {
+    return (
+      <div className="WeatherForecast">
+        <h2>Weekly</h2>
+        <WeatherForecastDay data={forecastData[0]} />
       </div>
-      <div className="dailyForecast">
-        <div className="forecastDate">Tuesday</div>
-        <div className="forecastData">
-          <WeatherIcons iconId={"09d"} weight={25} height={25} />
-          <div className="forecastMinTemp">0°</div>
-          {" | "}
-          <div className="forecastMaxTemp">5°</div>
-        </div>
-      </div>
-      <div className="dailyForecast">
-        <div className="forecastDate">Wednesday</div>
-        <div className="forecastData">
-          <WeatherIcons iconId={"09d"} weight={25} height={25} />
-          <div className="forecastMinTemp">0°</div>
-          {" | "}
-          <div className="forecastMaxTemp">5°</div>
-        </div>
-      </div>
-      <div className="dailyForecast">
-        <div className="forecastDate">Thursday</div>
-        <div className="forecastData">
-          <WeatherIcons iconId={"09d"} weight={25} height={25} />
-          <div className="forecastMinTemp">0°</div>
-          {" | "}
-          <div className="forecastMaxTemp">5°</div>
-        </div>
-      </div>
-      <div className="dailyForecast">
-        <div className="forecastDate">Friday</div>
-        <div className="forecastData">
-          <WeatherIcons iconId={"09d"} weight={25} height={25} />
-          <div className="forecastMinTemp">0°</div>
-          {" | "}
-          <div className="forecastMaxTemp">5°</div>
-        </div>
-      </div>
-      <div className="dailyForecast">
-        <div className="forecastDate">Saturday</div>
-        <div className="forecastData">
-          <WeatherIcons iconId={"09d"} weight={25} height={25} />
-          <div className="forecastMinTemp">0°</div>
-          {" | "}
-          <div className="forecastMaxTemp">5°</div>
-        </div>
-      </div>
-    </div>
-  );
+    );
+  } else {
+    search();
+    return null;
+  }
 }

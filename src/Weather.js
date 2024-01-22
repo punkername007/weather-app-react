@@ -24,6 +24,7 @@ export default function Weather(props) {
       ready: true,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
+      coordinates: response.data.coord,
     });
   }
 
@@ -89,7 +90,7 @@ export default function Weather(props) {
               <div className="highlights-data">{weatherData.wind} km/h</div>
             </div>
           </div>
-          <WeatherForecast />
+          <WeatherForecast coordinates={weatherData.coordinates} />
         </div>
         <div className="weather-display">
           <div className="location">
