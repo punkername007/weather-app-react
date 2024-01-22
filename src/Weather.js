@@ -8,7 +8,7 @@ import WeatherForecast from "./WeatherForecast.js";
 import BeatLoader from "react-spinners/BeatLoader";
 
 export default function Weather(props) {
-  const [unit, setUnit] = useState("celsius");
+  const [unit, setUnit] = useState("metric");
   const [query, setQuery] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({
     ready: false,
@@ -46,12 +46,12 @@ export default function Weather(props) {
 
   function updateCelsiusUnit(event) {
     event.preventDefault();
-    setUnit("celsius");
+    setUnit("metric");
   }
 
   function updateFahrUnit(event) {
     event.preventDefault();
-    setUnit("fahrenheit");
+    setUnit("imperial");
   }
 
   if (weatherData.ready) {
@@ -69,14 +69,8 @@ export default function Weather(props) {
               ></input>
             </form>
             <div className="temperature-units">
-              <a href="#" onClick={updateCelsiusUnit}>
-                C°
-              </a>
-              |
-              <a href="#" onClick={updateFahrUnit}>
-                {" "}
-                F°
-              </a>
+              <button onClick={updateCelsiusUnit}>C°</button>|
+              <button onClick={updateFahrUnit}>F°</button>
             </div>
           </div>
           <WeatherIcons iconId={weatherData.icon} width={100} height={100} />
@@ -91,7 +85,7 @@ export default function Weather(props) {
               <div className="highlights-data">{weatherData.wind} km/h</div>
             </div>
           </div>
-          <WeatherForecast coordinates={weatherData.coordinates} />
+          <WeatherForecast coordinates={weatherData.coordinates} unit={unit} />
         </div>
         <div className="weather-display">
           <div className="location">

@@ -33,18 +33,25 @@
   padding: 8px 5px 8px 10px;
 }
 
-.Weather .temperature-units a {
+.Weather .temperature-units {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.Weather .temperature-units button {
+  background: none;
+  border: none;
   color: rgba(41, 41, 41, 0.477);
   font-size: 15px;
   font-weight: bold;
   letter-spacing: 2px;
-  text-decoration: none;
   transition: all 200ms ease-in-out;
 }
 
-.Weather .temperature-units a:focus,
-.temperature-units a:hover {
+.Weather .temperature-units button:focus,
+.temperature-units button:hover {
   color: #000;
+  cursor: pointer;
 }
 
 .Weather .weather-description {
@@ -117,15 +124,9 @@
   .Weather {
     grid-template-columns: 1fr;
   }
-
   .Weather .weather-info {
     padding: 10px 0px 0px;
     box-shadow: 0px 5px 15px rgba(41, 41, 41, 0.477);
-  }
-
-  .Weather .temperature-units {
-    letter-spacing: 2px;
-    line-height: 1.5;
   }
   .Weather .weather-display h1 {
     font-size: 40px;
