@@ -1,5 +1,6 @@
 .App {
   font-family: "Roboto", sans-serif;
+  text-align: center;
 }
 
 .App footer {
@@ -13,21 +14,8 @@
   font-weight: 400;
   text-decoration: none;
 }
-.App .container {
-  background: linear-gradient(111.5deg, #bbe8ff 11.1%, #044e74 107.5%);
-  border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(41, 41, 41, 0.477);
-  color: #fff;
-  margin: 20px auto;
-  max-width: 1000px;
-  padding: 0;
-}
 
 @media (max-width: 992px) {
-  .App .container {
-    max-width: 90%;
-  }
-
   .App footer {
     font-size: 12px;
     margin: 0 auto;

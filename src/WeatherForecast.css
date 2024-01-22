@@ -7,15 +7,15 @@
   border-bottom: 1px solid gray;
 }
 .WeatherForecastDay .dailyForecast {
-  font-size: 18px;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
-  margin: 5px auto;
   background-color: #044f7489;
   border-radius: 5px;
   color: #fff;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+  margin: 5px auto;
+  padding: 10px 10px;
 }
 
 .WeatherForecastDay .forecastDate {

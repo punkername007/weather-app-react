@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./WeatherForecast.css";
 import axios from "axios";
 import WeatherForecastDay from "./WeatherForecastDay";
+import BeatLoader from "react-spinners/BeatLoader";
 
 export default function WeatherForecast(props) {
   const [forecastData, setForecastData] = useState(null);
@@ -35,6 +36,6 @@ export default function WeatherForecast(props) {
     );
   } else {
     search();
-    return null;
+    return <BeatLoader color="#044f74" />;
   }
 }

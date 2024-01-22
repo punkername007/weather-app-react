@@ -5,6 +5,7 @@ import FormattedDate from "./formattedDate";
 import WeatherIcons from "./WeatherIcons";
 import WeatherTemperature from "./WeatherTemperature.js";
 import WeatherForecast from "./WeatherForecast.js";
+import BeatLoader from "react-spinners/BeatLoader";
 
 export default function Weather(props) {
   const [unit, setUnit] = useState("celsius");
@@ -112,6 +113,6 @@ export default function Weather(props) {
     );
   } else {
     search();
-    return <p>Loading ...</p>;
+    return <BeatLoader color="#044f74" />;
   }
 }
